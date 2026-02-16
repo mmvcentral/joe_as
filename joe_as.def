@@ -1,0 +1,40 @@
+[info]
+name		="Joseph_AS_Hermit Purple"
+displayname	="Joseph_HP"
+versiondate	=03,29,2010
+mugenversion	=1.0;06,14,2003
+author		="Ramkun + Naza15 + TheMasterFlippy"
+;author		="Men'sClub"
+pal.defaults	=1
+
+[files]
+cns		=joseph.cns
+cmd		=state/joseph.cmd
+st		=state/joseph.st
+stcommon	=state/menscommon.cns
+sprite		=joseph.sff
+anim		=joseph.air
+sound		=joseph.snd
+pal1=pal/04.act
+pal2=pal/05.act
+pal3=pal/06.act
+pal4=pal/01.act
+pal5=pal/02.act
+pal6=pal/03.act
+pal7=pal/07.act
+pal8=pal/08.act
+pal9=pal/09.act
+pal10=pal/10.act
+pal11=pal/11.act
+pal12=pal/12.act
+st1=state/N.st
+st2=state/S.st
+st3=state/H.st
+st4=state/helper.st
+st5=state/-2.st
+st6=EX.cns
+st7=unotag.cns
+
+[Arcade]
+intro.storyboard=
+ending.storyboard=
