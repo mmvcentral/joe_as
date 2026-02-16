@@ -2,7 +2,7 @@
 
 ## Character Introduction
 
-**Joseph Joestar** (ジョセフ・ジョースター, Josefu Jōsutā) is a MUGEN fighting game character based on Hirohiko Araki's *JoJo's Bizarre Adventure* series. This character is a fan-made adaptation for the MUGEN engine, featuring Joseph in his Part 3 (Stardust Crusaders) incarnation with his Stand **Hermit Purple** (隠者の紫, Hermit Purple).
+**Joseph Joestar** (Josefu Jōsutā) is a MUGEN fighting game character based on Hirohiko Araki's *JoJo's Bizarre Adventure* series. This character is a fan-made adaptation for the MUGEN engine, featuring Joseph in his Part 3 (Stardust Crusaders) incarnation with his Stand **Hermit Purple**.
 
 ### Original Creator
 
@@ -65,11 +65,11 @@ For detailed architecture (fight mode, skills, animations, counter parties, var(
 
 ### Creative Circle License
 
-This character is an **edition from the original author** (Men'sClub) and is released under the **Creative Circle License** (同人サークル).
+This character is an **edition from the original author** (Men'sClub) and is released under the **Creative Circle License**.
 
 This MUGEN character is a fan-made adaptation of Joseph Joestar from *JoJo's Bizarre Adventure*. All original character designs, names, and related intellectual property belong to **Hirohiko Araki** and **Shueisha**.
 
-- This work is distributed as a **Creative Circle** (同人) work—a fan-made adaptation of the original manga/game character.
+- This work is distributed as a **Creative Circle** (dōjin) work—a fan-made adaptation of the original manga/game character.
 - The original creator (Men'sClub) retains rights to the MUGEN implementation.
 - Use and distribution should respect the original author's terms and the MUGEN community guidelines.
 - For commercial or extensive derivative use, please contact the original creator.

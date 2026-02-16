@@ -58,6 +58,24 @@ Detailed analysis of character fight mode, skills, animations, and counter parti
 | 0 | Normal mode |
 | > 0 | Hermit Purple mode active |
 
+### 2.4 Fight Mode Input Flow
+
+| Command | State | Description |
+|---------|-------|-------------|
+| FF | 100 | Forward dash |
+| BB | 105 | Back dash |
+| holdfwd + 6 | 800 | Generic walk forward |
+| holdback + 4 | 810 | Generic walk back |
+| A+Y (ground) | 980/981 | Hermit Purple mode activation |
+| Y+B (ground) | 300/990 | Guard cancel |
+| Y+B (air) | 301 | Air guard cancel |
+| X+A | 900/901 | Recovery (forward/back) |
+| X+A (air) | 5200 | Safe fall |
+
+### 2.5 State -1 (Global Input) Priority
+
+State -1 in `joseph.cmd` handles global input. Higher-priority triggers are checked first: FF → BB → walk → Hermit Purple → guard cancel → recovery.
+
 ---
 
 ## 3. Skills & State/Animation Mapping
@@ -66,13 +84,13 @@ Detailed analysis of character fight mode, skills, animations, and counter parti
 
 | Skill | Command | State(s) | Anim | Helper | Notes |
 |-------|---------|----------|------|--------|-------|
-| **Cracker Volley** (クラッカーボレー) | 214A / 214B | 1000, 1050 | 1000 | 1010, 1060 (Cracker) | Projectile; helper at elem 13 |
-| **Overdrive** (オーバードライブ) | 236A / 236B | 1100, 1105 | 1100, 1105 | — | Ripple; 1105 is variant |
-| **Hermit Purple** (隠者の紫) | 623X / 623Y | 1200, 1210 | 1200, 1210 | — | Vine attack |
-| **Red Vine** (赤い蔓) | 236X / 236Y | 1300, 1310 | 1300, 1310 | — | Vine attack |
-| **Thorn Vine** (棘の蔓) | 214X / 214Y | 1400, 1410 | 1400, 1410 | 1404 (projectile) | Projectile; projid 1400 |
-| **Clacker Volley** (クラッカーボレー) | 214A / 214B (close) | 1500 | 1500 | 1500, 1511–1515 | Command throw |
-| **Hermit Purple Grab** (隠者の紫 掴み) | 41236X / 41236Y | 1600, 1610 | 1600, 1610 | 31142, 31143, 31148 | Grab; Hermit Purple helper |
+| **Cracker Volley** | 214A / 214B | 1000, 1050 | 1000 | 1010, 1060 (Cracker) | Projectile; helper at elem 13 |
+| **Overdrive** | 236A / 236B | 1100, 1105 | 1100, 1105 | — | Ripple; 1105 is variant |
+| **Hermit Purple** | 623X / 623Y | 1200, 1210 | 1200, 1210 | — | Vine attack |
+| **Red Vine** | 236X / 236Y | 1300, 1310 | 1300, 1310 | — | Vine attack |
+| **Thorn Vine** | 214X / 214Y | 1400, 1410 | 1400, 1410 | 1404 (projectile) | Projectile; projid 1400 |
+| **Clacker Volley** (close) | 214A / 214B (close) | 1500 | 1500 | 1500, 1511–1515 | Command throw |
+| **Hermit Purple Grab** | 41236X / 41236Y | 1600, 1610 | 1600, 1610 | 31142, 31143, 31148 | Grab; Hermit Purple helper |
 
 **Hermit Purple Mode Variants (EX.cns):**
 - 21100, 21156–21158: Cracker Volley (var(40) > 0)
@@ -138,6 +156,20 @@ Detailed analysis of character fight mode, skills, animations, and counter parti
 | Guard Cancel | Y+B | 300, 301, 990 | — |
 | Safe Fall | X+A (air) | 5200 | — |
 
+### 3.6 Per-Skill State Flow & Animation Counter-Parties
+
+| Skill | State Flow | Anim | Counter-Party (opponent hit) |
+|-------|------------|------|-----------------------------|
+| **Cracker Volley** | 1000→1010 (helper) | 1000 | Helper 1010 spawns projectile; HitDef on parent |
+| **Overdrive** | 1100→1101/1122/1123 | 1100, 1105 | Ripple hit; 310/311 for throw variant |
+| **Hermit Purple** | 1200/1210 | 1200, 1210 | Vine HitDef; no helper |
+| **Red Vine** | 1300/1310 | 1300, 1310 | Vine HitDef; Explod FX |
+| **Thorn Vine** | 1400→1404 (proj) | 1400, 1410 | ProjID 1400; hits mid/far |
+| **Clacker Volley** | 1500→1511–1515 | 1500 | Command throw; helpers 1512/1513 (wood) |
+| **Hermit Purple Grab** | 1600→31142/31143/31148 | 1600, 1610 | Helper 11040/11041/11047; TargetBind |
+| **Hermit Purple - Ripple Overdrive** | 3000/3100/3200/3300/3500 | 3000, 3100 | TargetLifeAdd, TargetPowerAdd, HitAdd |
+| **Hermit Purple - Boomerang Cracker** | 4010 | 4010 | Projectile super |
+
 ---
 
 ## 4. Animation Counter-Parties & Hit/Defeat System
@@ -158,7 +190,25 @@ Detailed analysis of character fight mode, skills, animations, and counter parti
 | 5000–5210 | Hit/defeat states |
 | 5081–5171 | Liedead variants |
 
-### 4.2 Helper IDs
+### 4.2 Animation ↔ State Counter-Parties
+
+| Hit State | Anim | Anim IDs | Purpose |
+|-----------|------|----------|---------|
+| 5000 | HIT_LIGHT | 5000–5002 | Light hit (front, back, far) |
+| 5010 | HIT_MEDIUM | 5010–5012 | Medium hit (front, back, far) |
+| 5020 | HIT_HARD | 5020–5022 | Hard hit (front, back, far) |
+| 5030 | HIT_BACK | 5030, 5035 | Back hit fall |
+| 5040 | HIT_UP | 5040 | Wall hit up |
+| 5050 | HIT_FALL | 5050 | Fall recovery |
+| 5060 | HIT_FALL (IV) | 5061 | Fall recovery (IV variant) |
+| 5070 | HIT_TRIP | 5070 | Trip knockdown |
+| 5080 | HIT_LIEDOWN | 5080 | Lying down |
+| 5090 | HIT_GETUP | 5090 | Get up from lie |
+| 5100 | HIT_BOUNCE | 5100 | Ground bounce |
+| 5110 | HIT_LIEDOWN (side) | 5110 | Liedown side |
+| 5120 | HIT_GETUP | 5120 | Get up |
+
+### 4.3 Helper IDs
 
 | ID | Name | Purpose |
 |----|------|---------|
@@ -171,7 +221,7 @@ Detailed analysis of character fight mode, skills, animations, and counter parti
 | 11047 | hermit purple | Hermit Purple grab |
 | 30000 | AI | AI controller |
 
-### 4.3 Projectile IDs
+### 4.4 Projectile IDs
 
 | ID | Name | State |
 |----|------|-------|
@@ -212,8 +262,8 @@ Detailed analysis of character fight mode, skills, animations, and counter parti
 |----------|---------|
 | var(0) | Punch flag |
 | var(1) | Guard state |
-| var(2) | 2nd character (KO判定) |
-| var(3) | Guard (数字制限) |
+| var(2) | 2nd character (KO判定) — see TRANSLATION.md |
+| var(3) | Guard (number limit) — see TRANSLATION.md |
 | var(5) | Dash flag |
 | var(6) | Low dash flag |
 | var(7) | Special use 1 |

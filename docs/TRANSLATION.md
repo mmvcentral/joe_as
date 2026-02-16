@@ -179,3 +179,136 @@ Editor : Anomi Polis + Naza15 + TheMasterFlippy
 | Original | English |
 |----------|---------|
 | 뷅귂벞뗰 | Section header (likely "Special" or similar) |
+
+---
+
+## Mojibake / Shift-JIS Comment Mappings (UTF-8 Display)
+
+Source files use **Shift-JIS (CP932)**. When viewed as UTF-8, Japanese comments appear as garbled characters (mojibake). This table maps mojibake patterns and their English equivalents.
+
+### joseph.cmd / state/joseph.cmd
+
+| Mojibake (as seen in UTF-8) | Original (Shift-JIS) | English |
+|-----------------------------|----------------------|---------|
+| 後ろへ行くb | 後ろへ行く | Back Dash |
+| 汎用立ち | 汎用立ち | Generic Stand |
+| キャンセル | キャンセル | Cancel |
+| キーボード | キーボード | Keyboard |
+| 汎用コマンド前 | 汎用コマンド前 | Generic Command (Front) |
+| 汎用コマンド後 | 汎用コマンド後 | Generic Command (Back) |
+| 汎用コマンド対象 | 汎用コマンド対象 | Generic Command (Target) |
+| 汎用コマンド両方 | 汎用コマンド両方 | Generic Command (Both) |
+| GCFRoll前 | 汎用コマンド前 (Guard Cancel) | GCFRoll (Guard Cancel Forward Roll) |
+
+### joseph.st / state/joseph.st
+
+| Mojibake | Original | English |
+|----------|----------|---------|
+| ジョジョ立ち | ジョジョ立ち | JoJo Stand |
+| お待たせいたしました＠＠ | お待たせいたしました | Sorry to keep you waiting |
+| 勝者が決まった時、僕はここに走っている | 勝者が決まった時、僕はここに走っている | When the winner is decided, I'm running here |
+| キャンセル | キャンセル | Cancel |
+| 回復 | 回復 | Recovery |
+| メンズクラブ | メンズクラブ | Men'sClub |
+| 耳に届く音 | 耳に届く音 | Sound that reaches the ear |
+
+### state/-2.st
+
+| Mojibake | Original | English |
+|----------|----------|---------|
+| ジョジョの28番ごめんください | ジョジョの28番ごめんください | JoJo No.28, thank you (credit notice) |
+| オーバードライブ:ジョジョ仕様 | オーバードライブ:ジョジョ仕様 | Overdrive: JoJo specification |
+
+### state/N.st, S.st, H.st
+
+| Mojibake | Original | English |
+|----------|----------|---------|
+| 効果音 | 効果音 | Sound effect |
+| 当たり判定 | 当たり判定 | Hit detection |
+| 終了 | 終了 | End |
+| キャンセル | キャンセル | Cancel |
+| 汎用:前 | 汎用:前 | Generic: Front |
+| 汎用:後 | 汎用:後 | Generic: Back |
+| 汎用:対象 | 汎用:対象 | Generic: Target |
+| 汎用:両方 | 汎用:両方 | Generic: Both |
+| 声を鳴らす | 声を鳴らす | Play sound / Make sound |
+| 予想したのJO | 予想したのJO | Expected JO (super move) |
+| キャンセル:ジョジョ仕様 | キャンセル:ジョジョ仕様 | Cancel: JoJo specification |
+| オーバードライブ:ジョジョ仕様 | オーバードライブ:ジョジョ仕様 | Overdrive: JoJo specification |
+| 回復 | 回復 | Recovery |
+| パラメータ変更(上げ) | パラメータ変更(上げ) | Parameter change (raise) |
+| メンズクラブ | メンズクラブ | Men'sClub |
+| メンズクラブ重さ | メンズクラブ重さ | Men'sClub weight |
+| メンズクラブ速度 | メンズクラブ速度 | Men'sClub speed |
+
+### state/menscommon.cns
+
+| Mojibake | Original | English |
+|----------|----------|---------|
+| メンズクラブ | メンズクラブ | Men'sClub |
+| ダッシュ | ダッシュ | Dash |
+
+### joseph.air
+
+| Mojibake | Original | English |
+|----------|----------|---------|
+| 専用立ち | 専用立ち | Special stand |
+| 立っている時の当たり判定 | 立っている時の当たり判定 | Hit detection when standing |
+| 蹴りが来ている時の当たり判定 | 蹴りが来ている時の当たり判定 | Hit detection when kick is coming |
+| 立身から蹴りへ | 立身から蹴りへ | From stand to kick |
+| 蹴りが腰状態から上がる | 蹴りが腰状態から上がる | Kick rises from waist state |
+| 前歩行 | 前歩行 | Forward walk |
+| 汎用コマンド(前後) | 汎用コマンド(前後) | Generic command (front/back) |
+| 汎用コマンド(対象) | 汎用コマンド(対象) | Generic command (target) |
+| 汎用コマンド(両方) | 汎用コマンド(両方) | Generic command (both) |
+| 回復 | 回復 | Recovery |
+| 上ヒット仰け(上あ) | 上ヒット仰け(上あ) | Hit up face-up (front) |
+| 上ヒット仰け(後ろあ) | 上ヒット仰け(後ろあ) | Hit up face-up (back) |
+| 上ヒット仰け(遠い) | 上ヒット仰け(遠い) | Hit up face-up (far) |
+| 上ヒット仰けから地面を叩いて起き(上あ) | 上ヒット仰けから地面を叩いて起き(上あ) | Arise from face-up hitting ground (front) |
+| 上ヒット仰けから地面を叩いて起き(後ろあ) | 上ヒット仰けから地面を叩いて起き(後ろあ) | Arise from face-up hitting ground (back) |
+| 上ヒット仰けから地面を叩いて起き(遠い) | 上ヒット仰けから地面を叩いて起き(遠い) | Arise from face-up hitting ground (far) |
+| 下ヒット仰け(上あ) | 下ヒット仰け(上あ) | Hit down face-up (front) |
+| 下ヒット仰け(後ろあ) | 下ヒット仰け(後ろあ) | Hit down face-up (back) |
+| 下ヒット仰け(遠い) | 下ヒット仰け(遠い) | Hit down face-up (far) |
+| 下ヒット仰けから地面を叩いて起き(上あ) | 下ヒット仰けから地面を叩いて起き(上あ) | Arise from face-down hitting ground (front) |
+| 下ヒット仰けから地面を叩いて起き(後ろあ) | 下ヒット仰けから地面を叩いて起き(後ろあ) | Arise from face-down hitting ground (back) |
+| 下ヒット仰けから地面を叩いて起き(遠い) | 下ヒット仰けから地面を叩いて起き(遠い) | Arise from face-down hitting ground (far) |
+| 蹴りが腰ヒット仰け(上あ) | 蹴りが腰ヒット仰け(上あ) | Kick waist hit face-up (front) |
+| 蹴りが腰ヒット仰け(後ろあ) | 蹴りが腰ヒット仰け(後ろあ) | Kick waist hit face-up (back) |
+| 蹴りが腰ヒット仰け(遠い) | 蹴りが腰ヒット仰け(遠い) | Kick waist hit face-up (far) |
+| 蹴りが腰ヒット仰けから地面を叩いて起き(上あ) | 蹴りが腰ヒット仰けから地面を叩いて起き(上あ) | Arise from kick waist hit (front) |
+| 蹴りが腰ヒット仰けから地面を叩いて起き(後ろあ) | 蹴りが腰ヒット仰けから地面を叩いて起き(後ろあ) | Arise from kick waist hit (back) |
+| 蹴りが腰ヒット仰けから地面を叩いて起き(遠い) | 蹴りが腰ヒット仰けから地面を叩いて起き(遠い) | Arise from kick waist hit (far) |
+| 壁に張り付いている時のヒット仰け(横E前) | 壁に張り付いている時のヒット仰け(横E前) | Hit face-up when stuck to wall (side) |
+| 壁に張り付いている時に攻撃ヒット仰け起き | 壁に張り付いている時に攻撃ヒット仰け起き | Arise from attack hit when stuck to wall |
+| 地に落ちる | 地に落ちる | Fall to ground |
+| 上に向く | 上に向く | Face upward |
+
+### EX.cns Korean Comment (State 440)
+
+| Original (Korean) | English |
+|-------------------|---------|
+| 긚긡?긣빾뛛 | End / Return to stand (corrupted: likely 종료 or similar) |
+
+---
+
+## Skill Names (Japanese → English)
+
+| Japanese | Romaji | English |
+|----------|--------|---------|
+| クラッカーボレー | Kurakkā Borē | Cracker Volley |
+| オーバードライブ | Ōbādoraibu | Overdrive |
+| 隠者の紫 | Inja no Murasaki | Hermit Purple |
+| 赤い蔓 | Akai Tsuru | Red Vine |
+| 棘の蔓 | Toge no Tsuru | Thorn Vine |
+| 隠者の紫 掴み | Inja no Murasaki Tsukami | Hermit Purple Grab |
+
+---
+
+## License Terms (Japanese → English)
+
+| Japanese | English |
+|----------|---------|
+| 同人サークル | Creative Circle (dōjin circle) |
+| 同人 | Dōjin (fan-made / amateur creative work) |
